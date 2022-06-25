@@ -6,7 +6,7 @@ secret: str = "python"
 guess: str = input(f"What is your {len(secret)}-letter guess? ")
 
 while len(guess) != len(secret): 
-    guess = input(f"That was not {len(secret)} letters! Try again: ") # reassign the guess variable to make progress toward while loop condition being false
+    guess = input(f"That was not {len(secret)} letters! Try again: ")  # reassign the guess variable to make progress toward while loop condition being false
 
 guess_index: int = 0
 secret_index: int = 0
@@ -16,24 +16,25 @@ WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
-partial_matches: bool = False # boolean variable to keep track of whether the guessed character exists in secret
+partial_matches: bool = False  # boolean variable to keep track of whether the guessed character exists in secret
 
 while guess_index < len(secret):
     if guess[guess_index] == secret[guess_index]:
         resulting_emojis = resulting_emojis + GREEN_BOX
             
-    else: # cross checks each secret index with each guess index
-        while partial_matches == False and secret_index < len(secret): 
+    else:  # cross checks each secret index with each guess index
+        while not partial_matches and secret_index < len(secret):
             if secret[secret_index] == guess[guess_index]: 
                 partial_matches = True
             else:
-                secret_index = secret_index +1 
-        if partial_matches == True: # if the guessed characters exist somewhere else in the secret word
+                secret_index = secret_index + 1 
+        
+        if partial_matches == True:  # if the guessed characters exist somewhere else in the secret word
             resulting_emojis = resulting_emojis + YELLOW_BOX
-        else: # if the user guessed no correct characters  
+        else:  # if the user guessed no correct characters  
             resulting_emojis = resulting_emojis + WHITE_BOX
 
-    guess_index = guess_index +1 
+    guess_index = guess_index + 1 
 
 print(resulting_emojis)
 
