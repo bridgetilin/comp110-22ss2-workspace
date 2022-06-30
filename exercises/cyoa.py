@@ -67,7 +67,7 @@ def level_1() -> None:
     """Level 1 game path based on a random number between 1 to 10."""
     global player
     global points
-    secret: int = randint(1,10)
+    secret: int = randint(1, 10)
     guess = int(input(f"{player}, pick a number from 1 to 10. You have 3 tries to guess the correct number. Enter your first guess: "))
     if guess < 1 or guess > 10:
         guess = int(input("Invalid selection. Try again: "))
@@ -76,7 +76,7 @@ def level_1() -> None:
     while guess != secret and turn < 3: 
         guess = retry(guess, secret)
         # will grant different points based on relative accuracy of guess
-        if abs(secret - guess) <=2:  
+        if abs(secret - guess) <= 2:  
             points = points + 20
         else:
             points = points + 10
@@ -93,7 +93,7 @@ def level_2() -> None:
     """Level 2 game path based on a random number between 1 and 25."""
     global player
     global points 
-    secret: int = randint(1,25)
+    secret: int = randint(1, 25)
     guess = int(input(f"{player}, pick a number from 1 to 25. You have 5 tries to guess the correct number. Enter your first guess: "))
 
     if guess < 1 or guess > 25:
@@ -104,7 +104,7 @@ def level_2() -> None:
     while guess != secret and turn < 5: 
         guess = retry(guess, secret)
         # will grant different points based on relative accuracy of guess
-        if abs(secret - guess) <=2:  
+        if abs(secret - guess) <= 2:  
             points = points + 20
         else:
             points = points + 10
@@ -132,7 +132,7 @@ def level_3(min: int, max: int, points: int) -> int:
         if abs(guess - secret) < (max - min) * 0.1:  # if the difference between the guess and secret is less than 10% of the range, add 10 points
             points = points + 20
         else:
-           points = points + 10  
+            points = points + 10  
         turn = turn + 1
 
     if guess == secret:
