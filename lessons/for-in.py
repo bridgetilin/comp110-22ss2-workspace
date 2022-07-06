@@ -2,6 +2,7 @@
 
 names: list[str] = ["Bridget", "Sammi", "Jada"]
 
+
 # Example of iterating through names using while
 
 #prints names 

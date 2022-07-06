@@ -1,5 +1,11 @@
 """Example of writing a test subject"""
 
+
+# skeleton function 
+# def sum(xs: list[float]) -> float:
+#     """Compute the sum of a list"""
+#     return -1.0
+
 # def sum(xs: list[float]) -> float:
 #     """Compute the sum of a list"""
 #     total: float  = 0.0

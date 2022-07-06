@@ -51,7 +51,7 @@ def greet() -> None:
     """Introduction to the game."""
     global player
     player = input("What is your name? ")
-    print(f"Welcome to 'Guess the Number,' {player}! In this game, we will pick a random number, and your goal is to correctly guess the secret number to unlock the mysterious valut {LOCK}! Each time you guess, you add points to your very cool (and very real) bank!")
+    print(f"Welcome to 'Guess the Number,' {player}! In this game, we will pick a random number, and your goal is to correctly guess the secret number to unlock the mysterious vault {LOCK}! Each time you guess, you add points to your very cool (and very real) bank!")
 
 
 def retry(guess: int, secret: int) -> int:
