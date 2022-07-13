@@ -1,6 +1,4 @@
-"""Demonstrate defining a modeule imported elsewhere """
-
-from sys import float_repr_style
+"""Demonstrate defining a module imported elsewhere """
 
 THE_ANSWER: int = 42 
 

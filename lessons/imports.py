@@ -5,7 +5,7 @@ from lessons import helpers
 from lessons import helpers as hp
     # so that you don't haev to type out helpers each time 
     # alias
-from lessons.helpers import powerful
+from lessons.helpers import powerful, THE_ANSWER
     # import names defined globally 
 
 # from directiry import module

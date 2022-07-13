@@ -4,13 +4,16 @@
 from csv import DictReader
 
 def read_csv_rows(filename: str) -> list[dict[str, str]]:
+    # returns a list of dict[str, str] each row is represented as a dictionary (key = column name, value = values associated)
+    # creates a row-oriented table
     """Read the rows of a csv into a 'table'."""
     result: list[dict[str,str]] = []
     
-    # Open a handle to the data file
+    # Open a handle to the data file, built in python notation 
+    # "r" indicates "read"
     file_handle = open(filename, "r", encoding="utf8")
 
-    # prepare to read that data file as CSV rather than just strings
+    # prepare to read that data file as CSV row-by-row rather than just strings
     csv_reader = DictReader(file_handle)
     
     # Read each row of the CSV line-by-line
@@ -30,11 +33,13 @@ def column_values(table: list[dict[str, str]], column: str) -> list[str]:
         result.append(item)
     return result
 
+
 def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
     """Transformm a row-oriented table to a column oritented table."""
     result: dict[str, list[str]] = {}
-    first_row: dict[str, str] = row_table[0]
+    first_row: dict[str, str] = row_table[0]  # the first row contains all of the column names
     for column in first_row:
-        result[column] = column_values(row_table, column)
+        result[column] = column_values(row_table, column)  # column_values gives you all of the values in a single column
 
     return result
+
