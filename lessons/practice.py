@@ -65,3 +65,12 @@ if __name__ == "__main__":
     
     # if a_counter != inverted_a_counter:  # if the number of key-value pairings is not the same before and after the inversion, this indicates the existence of a duplicate key
     #     raise KeyError("The same key was encountered more than once in the inverted dictionary.")
+
+class Foo:
+   bar: int = 0
+
+f: Foo = Foo()
+f.bar = 10
+
+print(f)
+print(f.bar)
