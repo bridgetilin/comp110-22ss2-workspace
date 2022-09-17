@@ -15,9 +15,9 @@ GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
 while guess_index < len(secret):
-    if guess[guess_index] == secret[guess_index]: 
+    if guess[guess_index] == secret[guess_index]:  # checks for EXACT matches first at each index
         resulting_emojis = resulting_emojis + GREEN_BOX    
-    else:  # cross checks between secret and guess for partial character matches
+    else:  # enters else block if not exact, cross checks between secret and guess for partial character matches
         secret_index: int = 0  
         partial_matches: bool = False  # boolean variable to keep track of whether the guessed character exists in secret
         while not partial_matches and secret_index < len(secret):

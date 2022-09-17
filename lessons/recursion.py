@@ -36,13 +36,18 @@ def sum(node: Optional[Node]) -> int:
         return node.data + sum(node.next)
 
 
-def count(node: Node, current_count: int = 0) -> int:
-    """Return the number of nodes in a linked list."""
-    if node.next is None:  # base case
-        return current_count + 1 
+# def count(node: Node, current_count: int = 0) -> int:
+#     """Return the number of nodes in a linked list."""
+#     if node.next is None:  # base case
+#         return current_count + 1 
+#     else:
+#         return count(node.next, current_count + 1)
+    
+def count(node: Optional[Node], current_count: int = 0) -> int:
+    if node is None:
+        return current_count
     else:
         return count(node.next, current_count + 1)
-    
 
 # recursive structure
 head: Node = Node(3, None)
@@ -51,5 +56,6 @@ head = Node(1, head)
 print(sum(head))
 print(count(head))
 print(head)
-
+head_2: Node = Node(1, None)
+print(count(head_2))
     

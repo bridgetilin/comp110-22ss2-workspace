@@ -5,7 +5,7 @@ __author__ = "730465834"
 
 def contains_char(word: str, character: str) -> bool: 
     """Searches for a character in a word.""" 
-    assert len(character) == 1
+    assert len(character) == 1  #make sure just checking for 1 letter at a time
     word_index: int = 0 
     matches: bool = False
     while not matches and word_index < len(word):  # runs until a match has been found or all characters in the word have been checked 

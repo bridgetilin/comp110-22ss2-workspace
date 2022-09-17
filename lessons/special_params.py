@@ -13,9 +13,7 @@ def hello(name: Union[str, int, float] = "World") -> str:
         greeting += "Alien Life from Sector " + str(name)
     return greeting
 
-
 print(hello("Sally"))
-
 
 # want it to work with no pramters too!
 print(hello())
@@ -23,8 +21,6 @@ print(hello())
 
 # int argument works to
 print(hello(110))
-
-
 
 def add(lhs: float = 0.0, rhs: Union[str, float] = 0.0) -> float:
     result: float = lhs

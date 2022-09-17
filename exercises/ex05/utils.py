@@ -3,6 +3,30 @@
 __author__ = "730465834"
 
  
+def all(list_1: list[int], int_1: int) -> bool:
+    """Given a list of ints and an int, all returns a bool indicating whether or not all the ints in the list are the same as the given int."""
+    i: int = 0 
+    result: bool = False
+    while i < len(list_1):
+        if list_1[i] == int_1: 
+            i += 1
+            result = True
+        else: 
+            return False
+    return result
+
+def max(list_int: list[int]) -> int:
+    """The max function is given a list of ints, max should return the largest in the List."""
+    max_num: int = 0
+    i: int = 0
+    if len(list_int) == 0:
+        raise ValueError("max() arg is an empty List")
+    while i < len(list_int):
+        if list_int[i] > max_num:
+            max_num = list_int[i]
+        i += 1
+    return max_num
+
 def only_evens(numbers: list[int]) -> list[int]:
     """Given a list of integers, return a list of the even elements of the input list."""
     i: int = 0
@@ -46,3 +70,12 @@ def sub(numbers: list[int], start: int, end: int) -> list[int]:
         i += 1 
 
     return sub_list 
+
+
+if __name__ == "__main__":
+    # print(all([1, 2, 3], 1))
+    # print(all([1, 1, 1], 2))
+    # print(all([1, 1, 1], 1))
+    print(max([1, 3, 2]))
+    print(max([100, 99, 98]))
+    print(max([]))
