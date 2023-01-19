@@ -30,7 +30,7 @@ class Simpy:
     
     def arange(self, start: float, stop: float, step: float = 1.0) -> None:
         """Fill in the values attribute with values within a given range."""
-        self.values = []
+        self.values = []  # init includes values attribute 
         assert step != 0.0
         if step > 0.0: 
             current: float = start  # variable to keep track of the next value to be added to the list
@@ -41,11 +41,11 @@ class Simpy:
             current: float = start
             while current > stop:
                 self.values.append(current)
-                current += step 
+                current += step  # plus a negative will minus
 
     def sum(self) -> float:
         """Compute and return the sum of all items in the values attribute."""
-        return sum(self.values)
+        return sum(self.values)  # pythons built in sum method 
     
     def __add__(self, rhs: Union[float, Simpy]) -> Simpy:
         """Overload the addition operator in conjuction with Simpy objects and floats."""

@@ -7,6 +7,9 @@ def invert(dict_1: dict[str, str]) -> dict[str, str]:
     """Given a dict[str, str], return a dict[str, str] that inverts the keys and values."""
     inverted_dict_1: dict[str, str] = {}
     for key in dict_1:
+        # if dict_1[key] in inverted_dict_1:
+            # raise KeyError("")
+            
         inverted_dict_1[dict_1[key]] = key
 
     if len(dict_1) != len(inverted_dict_1):  # if the number of key-value pairings is not the same before and after the inversion, this indicates the existence of one or more duplicate keys

@@ -17,8 +17,8 @@ def all(list_1: list[int], int_1: int) -> bool:
 
 def max(list_int: list[int]) -> int:
     """The max function is given a list of ints, max should return the largest in the List."""
-    max_num: int = 0
-    i: int = 0
+    max_num: int = list_int[0]
+    i: int = 1
     if len(list_int) == 0:
         raise ValueError("max() arg is an empty List")
     while i < len(list_int):

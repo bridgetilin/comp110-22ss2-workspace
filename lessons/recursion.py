@@ -30,10 +30,10 @@ class Node:
 #         return node.data + sum(node.next)
 
 def sum(node: Optional[Node]) -> int:
-    if node is None:  # can use == or is when equating to None
+    if node is None:  # can use == or is when equating to None, no longer node.next becuase we have optional node, could be node or none
         return 0 
     else:
-        return node.data + sum(node.next)
+        return node.data + sum(node.next)  # at the end we will read a node.next = none, so plus 0
 
 
 # def count(node: Node, current_count: int = 0) -> int:

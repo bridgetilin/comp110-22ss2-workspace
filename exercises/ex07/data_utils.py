@@ -12,12 +12,12 @@ def read_csv_rows(filename: str) -> list[dict[str, str]]:
     """Read the rows of a csv into a 'table'."""
     result: list[dict[str, str]] = []
     # Open a handle to the data file
-    file_handle = open(filename, "r", encoding="utf8")
+    file_handle = open(filename, "r", encoding="utf8") #special file opening variable, r stands for read, encoding = keyword opening parameter 
     # Prepare to read that data file as CSV
     csv_reader = DictReader(file_handle)
-    for row in csv_reader:
-        result.append(row)
-    file_handle.close()
+    for row in csv_reader: 
+        result.append(row) # row is now assigned a dict[str,str] - with the key as the column name and value as the valuue for that row.
+    file_handle.close() # make sure to close file to free its resources 
 
     return result
 
@@ -35,7 +35,7 @@ def column_values(table: list[dict[str, str]], column: str) -> list[str]:
 def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]: 
     """Transform a non-empty row-oriented 'table' into a column-oriented one."""
     column_table: dict[str, list[str]] = {}
-    first_row: dict[str, str] = row_table[0]  # the first row of row_table will contain all of the column names
+    first_row: dict[str, str] = row_table[0]  # the keys in the first row of row_table will contain all of the column names
     for column in first_row:  
         column_table[column] = column_values(row_table, column) 
 
@@ -91,3 +91,36 @@ def count(values: list[str]) -> dict[str, int]:
         else:
             result[value] = 1
     return result 
+
+
+
+# def head(column_table: dict[str, list[str]], rows: int) -> dict[str, list[str]]:
+#     result: dict[str, list[str]] = {}
+#     for column in column_table: 
+#         first_n_values: list[str] = []
+#         counter: int = 0 # need a counter varaible to loop through first N (for in would just loop through all)
+#         while counter < rows: 
+#             first_n_values.append(column_table[column][counter])  #narrowing down to columns then access a certain index within the values (which are a list)
+#             counter += 1
+#         result[column] = first_n_values
+#     return result
+    
+
+# def select(column_table: dict[str, list[str]], column_names: list[str]) -> dict[str, list[str]]:
+#     result: dict[str, list[str]] = {} 
+#     for column in column_names: 
+#         result[column] = column_table[column]  # the key is assinged to the name we are looking at right now and the value is assigned the corresponding list
+#     return result 
+
+def concat(column_table_1: dict[str, list[str]], column_table_2: dict[str, list[str]]) -> dict[str, list[str]]:
+    result: dict[str, list[str]] = {}
+    for column in column_table_1: 
+        result[column] = column_table_1[column]
+    for column in column_table_2: 
+        if column in result: 
+            result[column] += column_table_2[column]
+        else: 
+            result[column] = column_table_2[column]
+
+    return result 
+    
